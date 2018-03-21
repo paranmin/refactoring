@@ -9,18 +9,17 @@ public class SortSample {
 	}
 	
 	public void sort() {
+		// Arrays.sort(data);
 		for (int x = 0; x < data.length - 1; x++) {
 			int m = x;
-			for (int y = x + 1; y < data.length - 1; y++) {
+			for (int y = x + 1; y < data.length; y++) {
 				if (data[m] > data[y]) {
 					m = y;
 				}
 			}
-			assert isMin(m, x, data.length - 1);
 			int v = data[m];
 			data[m] = data[x];
 			data[x] = v;
-			assert isSorted(0, x + 1);
 		}
 	}
 
