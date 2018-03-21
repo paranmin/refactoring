@@ -11,7 +11,7 @@ public class SortSample {
 	public void sort() {
 		for (int x = 0; x < data.length - 1; x++) {
 			int m = x;
-			for (int y = x + 1; y < data.length; y++) {
+			for (int y = x + 1; y < data.length - 1; y++) {
 				if (data[m] > data[y]) {
 					m = y;
 				}
