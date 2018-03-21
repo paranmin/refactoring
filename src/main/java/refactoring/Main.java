@@ -12,6 +12,7 @@ import refactoring.chap02.simple.SimpleDatabase;
 import refactoring.chap03.SortSample;
 import refactoring.chap04.Label;
 import refactoring.chap04.Person;
+import refactoring.chap05.Banner;
 
 public class Main {
 	private static final Random random = new Random(1234);
@@ -20,8 +21,14 @@ public class Main {
 		// chapter02();
 		// chapter02_simple();
 		// chapter03();
+		// chapter04();
 		
-		chapter04();
+		chapter05();
+	}
+
+	private static void chapter05() {
+		Banner hello = new Banner("Hello, World!!");
+		hello.print(3);
 	}
 
 	// 널 객체 도입
