@@ -14,6 +14,7 @@ import refactoring.chap04.Label;
 import refactoring.chap04.Person;
 import refactoring.chap05.Banner;
 import refactoring.chap06.Book;
+import refactoring.chap06.extract_superclass.Player;
 
 public class Main {
 	private static final Random random = new Random(1234);
@@ -24,8 +25,18 @@ public class Main {
 		// chapter03();
 		// chapter04();
 		// chapter05();
+		// chapter06();
 		
-		chapter06();
+		Player player = new Player();
+		player.setCurrentMedia(true);
+		player.play();
+		player.loop();
+		player.stop();
+		
+		player.setCurrentMedia(false);
+		player.play();
+		player.loop();
+		player.stop();
 	}
 
 	// 클래스 추출
