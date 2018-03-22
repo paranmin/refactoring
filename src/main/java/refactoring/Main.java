@@ -13,6 +13,7 @@ import refactoring.chap03.SortSample;
 import refactoring.chap04.Label;
 import refactoring.chap04.Person;
 import refactoring.chap05.Banner;
+import refactoring.chap06.Book;
 
 public class Main {
 	private static final Random random = new Random(1234);
@@ -22,10 +23,25 @@ public class Main {
 		// chapter02_simple();
 		// chapter03();
 		// chapter04();
+		// chapter05();
 		
-		chapter05();
+		chapter06();
 	}
 
+	// 클래스 추출
+	private static void chapter06() {
+		Book refactoring = new Book(
+				"Refactoring : improving the design of existing code",
+				"ISBN0201485672",
+				"$44.95",
+				"Marting Fowler",
+				"fowler@acm.org");
+		
+		System.out.println("refactoring : ");
+		System.out.println(refactoring.toXML());
+	}
+
+	// 메서드 추출
 	private static void chapter05() {
 		Banner hello = new Banner("Hello, World!!");
 		hello.print(3);
