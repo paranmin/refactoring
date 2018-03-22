@@ -27,13 +27,15 @@ public class Main {
 		// chapter05();
 		// chapter06();
 		
-		Player player = new Player();
-		player.setCurrentMedia(true);
-		player.play();
-		player.loop();
-		player.stop();
-		
-		player.setCurrentMedia(false);
+		Player musicPlayer = new Player();
+		Player videoPlayer = new Player();
+		musicPlayer.setCurrentMedia(true);
+		videoPlayer.setCurrentMedia(false);
+		play(musicPlayer);
+		play(videoPlayer);
+	}
+
+	private static void play(Player player) {
 		player.play();
 		player.loop();
 		player.stop();
