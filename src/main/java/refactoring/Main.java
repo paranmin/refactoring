@@ -3,7 +3,9 @@ package refactoring;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
 
 import refactoring.chap01.Robot;
@@ -15,6 +17,7 @@ import refactoring.chap04.Person;
 import refactoring.chap05.Banner;
 import refactoring.chap06.Book;
 import refactoring.chap06.extract_superclass.Player;
+import refactoring.chap08.Shape;
 
 public class Main {
 	private static final Random random = new Random(1234);
@@ -26,7 +29,19 @@ public class Main {
 		// chapter04();
 		// chapter05();
 		// chapter06();
+		// chapter06_extract_superclass();
 		
+		List<Shape> shapeList = Arrays.asList(
+					new Shape(Shape.TYPECODE_LINE, 0, 0, 100, 200),
+					new Shape(Shape.TYPECODE_RECTANGLE, 10, 20, 30, 40),
+					new Shape(Shape.TYPECODE_OVAL, 100, 200, 300, 400)
+				);
+		for (Shape s : shapeList) {
+			s.draw();
+		}
+	}
+
+	private static void chapter06_extract_superclass() {
 		Player musicPlayer = new Player();
 		Player videoPlayer = new Player();
 		musicPlayer.setCurrentMedia(true);
