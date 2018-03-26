@@ -18,6 +18,7 @@ import refactoring.chap05.Banner;
 import refactoring.chap06.Book;
 import refactoring.chap06.extract_superclass.Player;
 import refactoring.chap08.Shape;
+import refactoring.chap09.Logger;
 
 public class Main {
 	private static final Random random = new Random(1234);
@@ -30,7 +31,25 @@ public class Main {
 		// chapter05();
 		// chapter06();
 		// chapter06_extract_superclass();
+		// chapter08();
 		
+		Logger logger = new Logger();
+		logger.log("infomation #1");
+		
+		logger.start();
+		logger.log("infomation #2");
+		
+		logger.start();
+		logger.log("infomation #3");
+		
+		logger.stop();
+		logger.log("infomation #4");
+		
+		logger.stop();
+		logger.log("infomation #5");
+	}
+
+	private static void chapter08() {
 		List<Shape> shapeList = Arrays.asList(
 					new Shape(Shape.TYPECODE_LINE, 0, 0, 100, 200),
 					new Shape(Shape.TYPECODE_RECTANGLE, 10, 20, 30, 40),
