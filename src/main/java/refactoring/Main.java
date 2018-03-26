@@ -19,7 +19,6 @@ import refactoring.chap06.Book;
 import refactoring.chap06.extract_superclass.Player;
 import refactoring.chap08.Shape;
 import refactoring.chap09.Logger;
-import refactoring.chap09.exam.Media;
 
 public class Main {
 	private static final Random random = new Random(1234);
@@ -33,14 +32,8 @@ public class Main {
 		// chapter06();
 		// chapter06_extract_superclass();
 		// chapter08();
-		// chapter09();
+		chapter09();
 		
-		refactoring.chap09.exam.Player player = new refactoring.chap09.exam.Player();
-		player.setMedia(Media.MUSIC);
-		
-		player.play();
-		player.loop();
-		player.stop();
 	}
 
 	private static void chapter09() {

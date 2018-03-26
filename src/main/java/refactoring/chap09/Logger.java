@@ -3,15 +3,14 @@ package refactoring.chap09;
 public class Logger {
 	public static final int STATE_STOPPED = 0;
 	public static final int STATE_LOGGING = 1;
-	
 	private int state;
 
 	public Logger() {
-		this.state = STATE_STOPPED;
+		state = STATE_STOPPED;
 	}
-	
+
 	public void start() {
-		switch(state) {
+		switch (state) {
 		case STATE_STOPPED:
 			System.out.println("** START LOGGING **");
 			state = STATE_LOGGING;
@@ -19,12 +18,12 @@ public class Logger {
 		case STATE_LOGGING:
 			break;
 		default:
-			System.out.printf("%s : %s%n", "Inavlid state", state);
+			System.out.println("Invalid state : " + state);
 		}
 	}
-	
+
 	public void stop() {
-		switch(state) {
+		switch (state) {
 		case STATE_STOPPED:
 			break;
 		case STATE_LOGGING:
@@ -32,20 +31,20 @@ public class Logger {
 			state = STATE_STOPPED;
 			break;
 		default:
-			System.out.printf("%s : %s%n", "Inavlid state", state);
+			System.out.println("Invalid state : " + state);
 		}
 	}
-	
+
 	public void log(String info) {
-		switch(state) {
+		switch (state) {
 		case STATE_STOPPED:
-			System.out.printf("%s : %s%n", "Ignoring", info);
+			System.out.println("Ignoring : " + info);
 			break;
 		case STATE_LOGGING:
-			System.out.printf("%s : %s%n", "Logging", info);
+			System.out.println("Logging : " + info);
 			break;
 		default:
-			System.out.printf("%s : %s%n", "Inavlid state", state);
+			System.out.println("Invalid state : " + state);
 		}
 	}
 }
