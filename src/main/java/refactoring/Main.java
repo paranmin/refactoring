@@ -19,6 +19,7 @@ import refactoring.chap06.Book;
 import refactoring.chap06.extract_superclass.Player;
 import refactoring.chap08.Shape;
 import refactoring.chap09.Logger;
+import refactoring.chap10.CH10Robot;
 
 public class Main {
 	private static final Random random = new Random(1234);
@@ -32,8 +33,23 @@ public class Main {
 		// chapter06();
 		// chapter06_extract_superclass();
 		// chapter08();
-		chapter09();
+		// chapter09();
 		
+		chapter10();
+	}
+
+	private static void chapter10() {
+		CH10Robot robot = new CH10Robot("Andrew");
+		System.out.println(robot.toString());
+		
+		robot.execute("forward right forward");
+		System.out.println(robot.toString());
+		
+		robot.execute("left backward left forward");
+		System.out.println(robot.toString());
+		
+		robot.execute("right forward forward farvard");
+		System.out.println(robot.toString());
 	}
 
 	private static void chapter09() {
