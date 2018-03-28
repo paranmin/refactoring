@@ -20,6 +20,7 @@ import refactoring.chap06.extract_superclass.Player;
 import refactoring.chap08.Shape;
 import refactoring.chap09.Logger;
 import refactoring.chap10.CH10Robot;
+import refactoring.chap11.Ch11Shape;
 
 public class Main {
 	private static final Random random = new Random(1234);
@@ -36,12 +37,12 @@ public class Main {
 		// chapter09();
 		// chapter10();
 		
-		List<Shape> shapeList = Arrays.asList(
-				new Shape(Shape.TYPECODE_LINE, 0, 0, 100, 200),
-				new Shape(Shape.TYPECODE_RECTANGLE, 10, 20, 30, 40),
-				new Shape(Shape.TYPECODE_OVAL, 100, 200, 300, 400)
+		List<Ch11Shape> shapeList = Arrays.asList(
+				new Ch11Shape(Ch11Shape.TYPECODE_LINE, 0, 0, 100, 200),
+				new Ch11Shape(Ch11Shape.TYPECODE_RECTANGLE, 10, 20, 30, 40),
+				new Ch11Shape(Ch11Shape.TYPECODE_OVAL, 100, 200, 300, 400)
 			);
-		for (Shape s : shapeList) {
+		for (Ch11Shape s : shapeList) {
 			s.draw();
 		}
 	}
