@@ -35,7 +35,7 @@ public class Main {
 		// chapter06_extract_superclass();
 		// chapter08();
 		// chapter09();
-		// chapter10();
+		// chapter10(); 
 		
 		List<Ch11Shape> shapeList = Arrays.asList(
 				new Ch11Shape(Ch11Shape.TYPECODE_LINE, 0, 0, 100, 200),
