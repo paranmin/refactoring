@@ -58,14 +58,14 @@ public class Ch11Shape {
 	}
 
 	private void drawOval() {
-		System.out.printf("%15s : %s%n", "drawOval", this.toString());
+		System.out.printf("%15s : %s%n", "drawOval", this);
 	}
 
 	private void drawRectangle() {
-		System.out.printf("%15s : %s%n", "drawRectangle", this.toString());
+		System.out.printf("%15s : %s%n", "drawRectangle", this);
 	}
 
 	private void drawLine() {
-		System.out.printf("%15s : %s%n", "drawLine", this.toString());
+		System.out.printf("%15s : %s%n", "drawLine", this);
 	}
 }
