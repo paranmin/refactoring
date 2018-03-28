@@ -34,8 +34,16 @@ public class Main {
 		// chapter06_extract_superclass();
 		// chapter08();
 		// chapter09();
+		// chapter10();
 		
-		chapter10();
+		List<Shape> shapeList = Arrays.asList(
+				new Shape(Shape.TYPECODE_LINE, 0, 0, 100, 200),
+				new Shape(Shape.TYPECODE_RECTANGLE, 10, 20, 30, 40),
+				new Shape(Shape.TYPECODE_OVAL, 100, 200, 300, 400)
+			);
+		for (Shape s : shapeList) {
+			s.draw();
+		}
 	}
 
 	private static void chapter10() {
