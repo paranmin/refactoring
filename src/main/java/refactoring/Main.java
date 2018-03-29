@@ -1,5 +1,6 @@
 package refactoring;
 
+import java.awt.EventQueue;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -21,6 +22,7 @@ import refactoring.chap08.Shape;
 import refactoring.chap09.Logger;
 import refactoring.chap10.CH10Robot;
 import refactoring.chap11.Ch11Shape;
+import refactoring.chap12.IntegerDisplay;
 
 public class Main {
 	private static final Random random = new Random(1234);
@@ -36,7 +38,25 @@ public class Main {
 		// chapter08();
 		// chapter09();
 		// chapter10(); 
+		// chapter11();
 		
+		chapter12();
+	}
+
+	private static void chapter12() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					IntegerDisplay frame = new IntegerDisplay();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
+	private static void chapter11() {
 		List<Ch11Shape> shapeList = Arrays.asList(
 				new Ch11Shape(Ch11Shape.TYPECODE_LINE, 0, 0, 100, 200),
 				new Ch11Shape(Ch11Shape.TYPECODE_RECTANGLE, 10, 20, 30, 40),
