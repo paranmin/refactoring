@@ -23,6 +23,7 @@ import refactoring.chap09.Logger;
 import refactoring.chap10.CH10Robot;
 import refactoring.chap11.Ch11Shape;
 import refactoring.chap12.IntegerDisplay;
+import refactoring.chap13.Dice;
 
 public class Main {
 	private static final Random random = new Random(1234);
@@ -39,8 +40,25 @@ public class Main {
 		// chapter09();
 		// chapter10(); 
 		// chapter11();
+		// chapter12();
 		
-		chapter12();
+		chapter13();
+	}
+
+	private static void chapter13() {
+		List<Dice> dices = Arrays.asList(
+					new Dice(),
+					new Dice(456L),
+					new Dice()
+				);
+		dices.get(2).setSeed(456L);
+		
+		for (Dice d : dices) {
+			for (int i=0; i < 10; i++) {
+				System.out.printf("%d%s", d.nextInt(), i < 9 ? ",":"");
+			}
+			System.out.println();
+		}
 	}
 
 	private static void chapter12() {
