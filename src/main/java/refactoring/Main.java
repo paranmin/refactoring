@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -24,9 +25,11 @@ import refactoring.chap10.CH10Robot;
 import refactoring.chap11.Ch11Shape;
 import refactoring.chap12.IntegerDisplay;
 import refactoring.chap13.Dice;
+import refactoring.chap14.AddressFile;
 
 public class Main {
 	private static final Random random = new Random(1234);
+
 	public static void main(String[] args) {
 		// chapter01();
 		// chapter02();
@@ -38,24 +41,43 @@ public class Main {
 		// chapter06_extract_superclass();
 		// chapter08();
 		// chapter09();
-		// chapter10(); 
+		// chapter10();
 		// chapter11();
 		// chapter12();
-		
-		chapter13();
+		// chapter13();
+
+		chapter14();
+
+	}
+
+	private static void chapter14() {
+		try {
+			AddressFile file = new AddressFile("address.txt");
+			file.getDatabase().set("Hanjimin", "test1@test.com");
+			file.getDatabase().set("Song Hae Gyo", "test2@korea.com");
+			file.getDatabase().set("Park Cho Rong", "numberOne@apink.com");
+			file.getDatabase().update();
+
+			Enumeration<?> e = file.names();
+			while (e.hasMoreElements()) {
+				String name = (String) e.nextElement();
+				String mail = file.getDatabase().get(name);
+				System.out.printf("name=%s, mail=%s%n", name, mail);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	private static void chapter13() {
-		List<Dice> dices = Arrays.asList(
-					new Dice(),
-					new Dice(456L),
-					new Dice()
-				);
+		List<Dice> dices = Arrays.asList(new Dice(), new Dice(456L), new Dice());
 		dices.get(2).setSeed(456L);
-		
+
 		for (Dice d : dices) {
-			for (int i=0; i < 10; i++) {
-				System.out.printf("%d%s", d.nextInt(), i < 9 ? ",":"");
+			for (int i = 0; i < 10; i++) {
+				System.out.printf("%d%s", d.nextInt(), i < 9 ? "," : "");
 			}
 			System.out.println();
 		}
@@ -73,13 +95,11 @@ public class Main {
 			}
 		});
 	}
-	
+
 	private static void chapter11() {
-		List<Ch11Shape> shapeList = Arrays.asList(
-				new Ch11Shape(Ch11Shape.TYPECODE_LINE, 0, 0, 100, 200),
+		List<Ch11Shape> shapeList = Arrays.asList(new Ch11Shape(Ch11Shape.TYPECODE_LINE, 0, 0, 100, 200),
 				new Ch11Shape(Ch11Shape.TYPECODE_RECTANGLE, 10, 20, 30, 40),
-				new Ch11Shape(Ch11Shape.TYPECODE_OVAL, 100, 200, 300, 400)
-			);
+				new Ch11Shape(Ch11Shape.TYPECODE_OVAL, 100, 200, 300, 400));
 		for (Ch11Shape s : shapeList) {
 			s.draw();
 		}
@@ -88,13 +108,13 @@ public class Main {
 	private static void chapter10() {
 		CH10Robot robot = new CH10Robot("Andrew");
 		System.out.println(robot.toString());
-		
+
 		robot.execute("forward right forward");
 		System.out.println(robot.toString());
-		
+
 		robot.execute("left backward left forward");
 		System.out.println(robot.toString());
-		
+
 		robot.execute("right forward forward farvard");
 		System.out.println(robot.toString());
 	}
@@ -102,26 +122,24 @@ public class Main {
 	private static void chapter09() {
 		Logger logger = new Logger();
 		logger.log("infomation #1");
-		
+
 		logger.start();
 		logger.log("infomation #2");
-		
+
 		logger.start();
 		logger.log("infomation #3");
-		
+
 		logger.stop();
 		logger.log("infomation #4");
-		
+
 		logger.stop();
 		logger.log("infomation #5");
 	}
 
 	private static void chapter08() {
-		List<Shape> shapeList = Arrays.asList(
-					new Shape(Shape.TYPECODE_LINE, 0, 0, 100, 200),
-					new Shape(Shape.TYPECODE_RECTANGLE, 10, 20, 30, 40),
-					new Shape(Shape.TYPECODE_OVAL, 100, 200, 300, 400)
-				);
+		List<Shape> shapeList = Arrays.asList(new Shape(Shape.TYPECODE_LINE, 0, 0, 100, 200),
+				new Shape(Shape.TYPECODE_RECTANGLE, 10, 20, 30, 40),
+				new Shape(Shape.TYPECODE_OVAL, 100, 200, 300, 400));
 		for (Shape s : shapeList) {
 			s.draw();
 		}
@@ -144,13 +162,9 @@ public class Main {
 
 	// 클래스 추출
 	private static void chapter06() {
-		Book refactoring = new Book(
-				"Refactoring : improving the design of existing code",
-				"ISBN0201485672",
-				"$44.95",
-				"Marting Fowler",
-				"fowler@acm.org");
-		
+		Book refactoring = new Book("Refactoring : improving the design of existing code", "ISBN0201485672", "$44.95",
+				"Marting Fowler", "fowler@acm.org");
+
 		System.out.println("refactoring : ");
 		System.out.println(refactoring.toXML());
 	}
@@ -163,12 +177,9 @@ public class Main {
 
 	// 널 객체 도입
 	private static void chapter04() {
-		Person[] people = {
-				new Person(new Label("Alice"), new Label("alice@test.com")),
-				new Person(new Label("Bobby"), new Label("bobby@test.com")),
-				new Person(new Label("Chris"))
-		};
-		
+		Person[] people = { new Person(new Label("Alice"), new Label("alice@test.com")),
+				new Person(new Label("Bobby"), new Label("bobby@test.com")), new Person(new Label("Chris")) };
+
 		for (Person p : people) {
 			System.out.println(p);
 			p.display();
@@ -184,16 +195,16 @@ public class Main {
 		execute(10);
 		execute(10);
 	}
-	
+
 	private static void execute(int length) {
 		int[] data = new int[length];
 		for (int i = 0; i < data.length; i++) {
 			data[i] = random.nextInt(data.length);
 		}
-		
+
 		SortSample sorter = new SortSample(data);
 		System.out.printf("%6s : %s%n", "BEFORE", sorter);
-		
+
 		sorter.sort();
 		System.out.printf("%6s : %s%n%n", "AFTER", sorter);
 	}
@@ -201,17 +212,14 @@ public class Main {
 	// 제어 플러그 삭제 - 조금 더 복잡한 예제
 	private static void chapter02_simple() {
 		try {
-			String fileUrl = Thread.currentThread()
-					.getContextClassLoader()
-					.getResource("dbfile.txt")
-					.getPath();
+			String fileUrl = Thread.currentThread().getContextClassLoader().getResource("dbfile.txt").getPath();
 			SimpleDatabase db = new SimpleDatabase(new FileReader(fileUrl));
 			Iterator<String> iterator = db.iterator();
 			while (iterator.hasNext()) {
 				String key = iterator.next();
 				System.out.printf("KEY : %s%nVALUE : %s%n%n", key, db.getValue(key));
 			}
-		} catch(FileNotFoundException e) {
+		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
